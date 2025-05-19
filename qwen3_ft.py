@@ -69,7 +69,7 @@ args = TrainingArguments(
 )
 
 swanlab_callback = SwanLabCallback(
-    project="Qwen2.5-0.5B-fintune",
+    project="Qwen3-0.6B-fintune",
     experiment_name="Qwen/Qwen3-0.6B",
     config={
         "model": "Qwen/Qwen3-0.6B",
