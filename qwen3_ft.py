@@ -29,7 +29,7 @@ def process_func(example):
         labels = labels[:MAX_LENGTH]
     return {"input_ids": input_ids, "attention_mask": attention_mask, "labels": labels}   
 
-model_dir = snapshot_download("Qwen/Qwen3-0.6", cache_dir="./", revision="master")
+model_dir = snapshot_download("Qwen/Qwen3-0.6B", cache_dir="./", revision="master")
 
 # Transformers加载模型权重
 tokenizer = AutoTokenizer.from_pretrained("./Qwen/Qwen3-0.6B/", use_fast=False, trust_remote_code=True)
