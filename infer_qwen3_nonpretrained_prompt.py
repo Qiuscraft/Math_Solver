@@ -40,6 +40,8 @@ with open(system_prompt_path, 'r', encoding='utf-8') as prompt_file:
 with open(test_json_new_path, 'r', encoding='utf-8') as file:
     test_data = json.load(file)
 
+print("Loaded test data from:", test_json_new_path, "\nTest data amount: ", len(test_data))
+
 with open("submit.csv", 'w', encoding='utf-8') as file:
     for idx, row in tqdm(enumerate(test_data)):
         input_value = row['question']
