@@ -31,8 +31,8 @@ test_json_new_path = "test.json"
 with open(test_json_new_path, 'r', encoding='utf-8') as file:
     test_data = json.load(file)
 
-tokenizer = AutoTokenizer.from_pretrained("./Qwen/Qwen2.5-0.5B-Instruct/", use_fast=False, trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained("./Qwen/Qwen2.5-0.5B-Instruct/", device_map="auto", torch_dtype=torch.bfloat16)
+tokenizer = AutoTokenizer.from_pretrained("./Qwen/Qwen3-0.6B/", use_fast=False, trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained("./Qwen/Qwen3-0.6B/", device_map="auto", torch_dtype=torch.bfloat16)
 model = PeftModel.from_pretrained(model, model_id="./output/Qwen/checkpoint-3750/")
 
 with open("submit.csv", 'w', encoding='utf-8') as file:
