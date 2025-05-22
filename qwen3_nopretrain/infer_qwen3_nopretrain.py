@@ -22,6 +22,10 @@ def predict(messages, model, tokenizer):
     )
     model_inputs = tokenizer([text], return_tensors="pt").to(device)
 
+    # 计算输入token数量
+    input_token_count = model_inputs.input_ids.shape[1]
+    print(f"输入token数量: {input_token_count}")
+
     generated_ids = model.generate(
         model_inputs.input_ids,
         max_new_tokens=512
@@ -29,6 +33,10 @@ def predict(messages, model, tokenizer):
     generated_ids = [
         output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)
     ]
+
+    # 计算输出token数量
+    output_token_count = generated_ids[0].shape[0]
+    print(f"输出token数量: {output_token_count}")
 
     response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
 
@@ -47,6 +55,8 @@ with open("submit.csv", 'w', encoding='utf-8') as file:
         input_value = row['question']
         id = row['id']
 
+        print("正在推理: ", input_value)
+
         messages = [
             {"role": "system", "content": f"{system_prompt}"},
             {"role": "user", "content": f"{input_value}"}
@@ -54,5 +64,4 @@ with open("submit.csv", 'w', encoding='utf-8') as file:
         response = predict(messages, model, tokenizer)
         response = response.replace('\n', ' ')
         file.write(f"{id},{response}\n")
-
 
