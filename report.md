@@ -4,6 +4,9 @@
 
 ```shell
 pip install swanlab
-pip install --upgrade transformers
-python qwen3_ft.py
+pip install transformers==4.52.1
+pip install vllm
+export VLLM_USE_MODELSCOPE=True
 ```
+
+重新打开终端。
