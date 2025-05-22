@@ -6,7 +6,7 @@ from transformers import AutoModelForCausalLM
 
 
 system_prompt_path = "./prompt/infer_qwen3_nonpretrained_prompt.txt"
-test_json_new_path = "test.json"
+test_json_new_path = "test/test.json"
 
 model_dir = snapshot_download("Qwen/Qwen3-0.6B", cache_dir="./", revision="master")
 

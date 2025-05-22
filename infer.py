@@ -26,7 +26,7 @@ def predict(messages, model, tokenizer):
      
     return response
 
-test_json_new_path = "test.json"
+test_json_new_path = "test/test.json"
 
 with open(test_json_new_path, 'r', encoding='utf-8') as file:
     test_data = json.load(file)
