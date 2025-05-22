@@ -55,7 +55,7 @@ with open("submit.csv", 'w', encoding='utf-8') as file:
         input_value = row['question']
         id = row['id']
 
-        print("正在推理: ", input_value)
+        print(f"正在推理: {id}: {input_value}")
 
         messages = [
             {"role": "system", "content": f"{system_prompt}"},
@@ -64,4 +64,5 @@ with open("submit.csv", 'w', encoding='utf-8') as file:
         response = predict(messages, model, tokenizer)
         response = response.replace('\n', ' ')
         file.write(f"{id},{response}\n")
+        print(f"推理结果: {response}")
 
