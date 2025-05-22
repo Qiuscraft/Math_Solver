@@ -8,7 +8,7 @@ from transformers import AutoModelForCausalLM
 system_prompt_path = "prompt.txt"
 test_json_new_path = "test0-999.json"
 
-model_dir = snapshot_download("Qwen/Qwen3-0.6B", cache_dir="../", revision="master")
+model_dir = snapshot_download("Qwen/Qwen3-0.6B", cache_dir="./", revision="master")
 
 tokenizer = AutoTokenizer.from_pretrained("./Qwen/Qwen3-0.6B/", use_fast=False, trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained("./Qwen/Qwen3-0.6B/", device_map="auto", torch_dtype=torch.bfloat16)
