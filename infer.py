@@ -35,7 +35,7 @@ tokenizer = AutoTokenizer.from_pretrained("./Qwen/Qwen3-0.6B/", use_fast=False, 
 model = AutoModelForCausalLM.from_pretrained("./Qwen/Qwen3-0.6B/", device_map="auto", torch_dtype=torch.bfloat16)
 model = PeftModel.from_pretrained(model, model_id="./output/Qwen/checkpoint-3750/")
 
-with open("submit.csv", 'w', encoding='utf-8') as file:
+with open("submit1.csv", 'w', encoding='utf-8') as file:
     for idx, row in tqdm(enumerate(test_data)):
         instruction = row['instruction']
         input_value = row['question']

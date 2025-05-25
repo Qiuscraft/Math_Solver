@@ -6,7 +6,7 @@ from transformers import AutoModelForCausalLM
 
 
 system_prompt_path = "prompt.txt"
-test_json_new_path = "test0-999.json"
+test_json_new_path = "test1000-2099.json"
 
 model_dir = snapshot_download("Qwen/Qwen3-0.6B", cache_dir="./", revision="master")
 
@@ -48,7 +48,7 @@ with open(test_json_new_path, 'r', encoding='utf-8') as file:
 
 print("Loaded test data from:", test_json_new_path, "\nTest data amount: ", len(test_data))
 
-with open("submit.csv", 'w', encoding='utf-8') as file:
+with open("submit1.csv", 'w', encoding='utf-8') as file:
     for idx, row in tqdm(enumerate(test_data)):
         input_value = row['question']
         id = row['id']
